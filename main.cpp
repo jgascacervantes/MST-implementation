@@ -15,15 +15,26 @@ bool compareWeight(const Graph::Edge e1, const Graph::Edge e2);
  */
 
 int main() {
-    Graph g(3, 3); //create a graph with 3 vertices and 3 edges
+    Graph g(8, 10); //create a graph
 
-    g.edges.push_back(Graph::Edge(0,1, 12));
-    g.edges.push_back(Graph::Edge(1,2, 2));
-    g.edges.push_back(Graph::Edge(2,0, 6));
+    g.edges.push_back(Graph::Edge(0,1, 6));
+    g.edges.push_back(Graph::Edge(1,2, 5));
+    g.edges.push_back(Graph::Edge(0,2, 12));
+    g.edges.push_back(Graph::Edge(3,2, 9));
+    g.edges.push_back(Graph::Edge(1,4, 14));
+    g.edges.push_back(Graph::Edge(1,5, 8));
+    g.edges.push_back(Graph::Edge(4,5, 3));
+    g.edges.push_back(Graph::Edge(5,6, 10));
+    g.edges.push_back(Graph::Edge(2,6, 7));
+    g.edges.push_back(Graph::Edge(6,7, 15));
+
+
+    //start algorithm
     //sort edges by weight so we check the lightest ones first
     std::sort(g.edges.begin(), g.edges.end(), compareWeight);
+
     /* MST representation*/
-    Graph MST(3,1);
+    Graph MST(8,1);
     int i = 1;
     MST.edges.push_back(g.edges[0]);
 
@@ -39,7 +50,7 @@ int main() {
             MST.e--;
         }
         i++;
-    }
+    }//end algorithm
 
     MST.printGraph();
     return 0;
@@ -63,7 +74,7 @@ void uni(int parent[], int x, int y) {
 int detectCycle(const Graph& g) {
     Graph gr = g;
     int parent[gr.v];
-    std::fill(parent, parent + sizeof(parent), -1);
+    std::fill_n(parent, gr.v, -1);
 
     for(int i = 0; i < gr.e; i++){
         int x = find(parent, gr.edges[i].src);
