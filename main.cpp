@@ -22,11 +22,11 @@ int main() {
     g.edges.push_back(Graph::Edge(0,2, 12));
     g.edges.push_back(Graph::Edge(3,2, 9));
     g.edges.push_back(Graph::Edge(1,4, 14));
-    g.edges.push_back(Graph::Edge(1,5, 8));
-    g.edges.push_back(Graph::Edge(4,5, 3));
-    g.edges.push_back(Graph::Edge(5,6, 10));
-    g.edges.push_back(Graph::Edge(2,6, 7));
-    g.edges.push_back(Graph::Edge(6,7, 15));
+    g.edges.push_back(Graph::Edge(1,7, 8));
+    g.edges.push_back(Graph::Edge(4,7, 3));
+    g.edges.push_back(Graph::Edge(7,5, 10));
+    g.edges.push_back(Graph::Edge(2,5, 7));
+    g.edges.push_back(Graph::Edge(5,6, 15));
 
 
     //start algorithm
